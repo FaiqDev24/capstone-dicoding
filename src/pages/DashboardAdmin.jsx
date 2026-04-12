@@ -1,4 +1,45 @@
+import { useNavigate } from "react-router-dom";
+
 export default function DashboardAdmin() {
+  const navigate = useNavigate();
+
+  const reports = [
+    {
+      id: 1,
+      title: "PARKIR LIAR",
+      author: "Udin",
+      date: "12/01/2026",
+      status: "Terverifikasi",
+      statusColor: "bg-green-100 text-green-800",
+      thumbnail: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=120&q=80",
+      image:
+        "https://images.unsplash.com/photo-1534723451958-45b98952b5b5?auto=format&fit=crop&w=1200&q=80",
+      location:
+        "Jl. Bangbarung Raya No.5, RT.01/RW.11, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16153, Indonesia",
+      note: "Depan Indomaret",
+      category: "Aspirasi",
+      description:
+        "Banyak sekali orang yang memarkirkan motor mereka secara sembarangan, terutama di area yang seharusnya digunakan oleh pejalan kaki. Hal ini membuat saya sebagai pejalan kaki merasa terganggu dan tidak nyaman ketika berjalan.",
+    },
+    {
+      id: 2,
+      title: "JALAN RUSAK",
+      author: "Budi",
+      date: "11/01/2026",
+      status: "Dalam Proses",
+      statusColor: "bg-yellow-100 text-yellow-800",
+      thumbnail: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=120&q=80",
+      image:
+        "https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?auto=format&fit=crop&w=1200&q=80",
+      location:
+        "Jl. Siliwangi No. 20, RT.04/RW.02, Kec. Bogor Tengah, Kota Bogor, Jawa Barat 16122, Indonesia",
+      note: "Dekat sekolah dasar",
+      category: "Aspirasi",
+      description:
+        "Permukaan jalan banyak berlubang dan berlumpur, sehingga kendaraan sering tergelincir dan pejalan kaki merasa tidak aman. Perbaikan segera diperlukan untuk mencegah kecelakaan.",
+    },
+  ];
+
   return (
     <div className="py-8 px-15">
       <div className="max-w-7xl mx-auto">
@@ -74,51 +115,32 @@ export default function DashboardAdmin() {
           </div>
           <div className="p-6">
             <div className="space-y-4">
-              {/* Report Item */}
-              <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                <div className="flex items-center space-x-4">
-                  <img
-                    src="https://via.placeholder.com/60x60"
-                    alt="report"
-                    className="w-12 h-12 rounded-lg object-cover"
-                  />
-                  <div>
-                    <h3 className="font-medium text-gray-800">PARKIR LIAR</h3>
-                    <p className="text-sm text-gray-600">Oleh: Udin - 12/01/2026</p>
+              {reports.map((report) => (
+                <div key={report.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                  <div className="flex items-center space-x-4">
+                    <img
+                      src={report.thumbnail}
+                      alt="report"
+                      className="w-12 h-12 rounded-lg object-cover"
+                    />
+                    <div>
+                      <h3 className="font-medium text-gray-800">{report.title}</h3>
+                      <p className="text-sm text-gray-600">Oleh: {report.author} - {report.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <span className={`px-3 py-1 text-xs rounded-full ${report.statusColor}`}>
+                      {report.status}
+                    </span>
+                    <button
+                      onClick={() => navigate("/detail", { state: report })}
+                      className="text-blue-600 hover:text-blue-800 font-medium"
+                    >
+                      Lihat Detail
+                    </button>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <span className="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">
-                    Terverifikasi
-                  </span>
-                  <button className="text-blue-600 hover:text-blue-800 font-medium">
-                    Lihat Detail
-                  </button>
-                </div>
-              </div>
-
-              {/* More report items can be added here */}
-              <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                <div className="flex items-center space-x-4">
-                  <img
-                    src="https://via.placeholder.com/60x60"
-                    alt="report"
-                    className="w-12 h-12 rounded-lg object-cover"
-                  />
-                  <div>
-                    <h3 className="font-medium text-gray-800">JALAN RUSAK</h3>
-                    <p className="text-sm text-gray-600">Oleh: Budi - 11/01/2026</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">
-                    Dalam Proses
-                  </span>
-                  <button className="text-blue-600 hover:text-blue-800 font-medium">
-                    Lihat Detail
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
