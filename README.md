@@ -1,16 +1,22 @@
-# React + Vite
+# Capstone Dicoding - Aplikasi Pengelolaan Laporan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deskripsi Singkat Proyek
+Aplikasi web ini adalah proyek capstone untuk kursus Dicoding yang dibangun menggunakan React dan Vite. Aplikasi ini menyediakan fitur untuk mengelola laporan, dashboard admin, autentikasi pengguna, dan antarmuka untuk membuat serta melihat detail laporan. Dirancang untuk memudahkan pengelolaan data laporan dengan antarmuka yang user-friendly.
 
-Currently, two official plugins are available:
+## Petunjuk Setup Environment
+Untuk menyiapkan lingkungan kerja, ikuti langkah-langkah berikut:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Pastikan Anda telah menginstal Node.js (versi 16 atau lebih tinggi) dan npm di sistem Anda.
+2. Clone repositori ini ke mesin lokal Anda.
+3. Buka terminal dan navigasi ke direktori proyek: `cd capstone-dicoding`.
+4. Instal dependensi dengan menjalankan perintah: `npm install`.
+5. Jika diperlukan, konfigurasikan variabel lingkungan untuk API atau layanan eksternal (lihat file `.env` jika ada).
 
-## React Compiler
+## Cara Menjalankan Aplikasi
+Untuk menjalankan aplikasi dalam mode development:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Pastikan semua dependensi telah terinstal (lihat Petunjuk Setup Environment).
+2. Jalankan perintah: `npm run dev`.
+3. Buka browser dan akses `http://localhost:5173` (atau port yang ditampilkan di terminal).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Untuk build production, jalankan `npm run build` dan kemudian `npm run preview` untuk melihat hasil build.
